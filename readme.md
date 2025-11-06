@@ -96,3 +96,47 @@ In the effort to keep the project looking mostly like it came from 1985, the 340
 This project pushes the chip to its limit. It has an output switching current of 1.5A while this project requires 1.37A for the 28v rail. The actual current needed is more like 100mA. The switching current is just the peak current through the inductor, which if the input voltage is being boosted a lot, will be a high current.
 
 The display tubes require a low voltage for the directly heated cathode. This is also created from the use of the 34063 in a buck converter topology. The heater voltage can easily be created with a series resistor from the 5v supply. This has the problem of the voltage changing directly in proportion with the supply. The USB voltage can vary a large amount, this would cause the display brightness to vary a lot. It could even damage the cathode. Should the voltage drift too high. Using the buck converter for powering the cathodes, allows the 34063 to adjust the output voltage regardless of the input voltage.
+
+## Troubleshooting
+
+### Digits skipping when setting time
+
+The quality of the buttons used make a difference here. Some will bounce more than others, that is what is causing the digits to skip. Try either a larger capacitor near it or swap the switch in hopes it will not bounce so much.
+
+### Digits are dim when a certain number is displayed and segment missing
+
+Turn it off. Your switching IC and its output components are probably burning hot, along with one or more UDN2981A chips. If a chip it hot, it will point you to the digit causing the problem. You will have a short between the digit pins somewhere after the output pins of the UDN2891A. Likely to ground or on of the cathode pins.
+
+### 28v supply is outputting 5v
+
+The boost circuit isn't working. The way it is wired the input supply is directly connected to the output supply through a diode, resistor and inductor. The chip isn't switching. Pull it out, check the connections. Look at the components around it, make sure they are soldered properly, make sure they are the right values and not mixed around. Make sure the display switch is on.
+
+### 1.5v supply is outputting nothing
+
+The buck circuit isn't working. The way it is wired the output supply comes from the emitter of the internal transistor of the chip. The chip isn't switching. Pull it out, check the connections. Look at the components around it, make sure they are soldered properly, make sure they are the right values and not mixed around. Make sure the display switch is on.
+
+Make sure the USB connector is soldered properly. Make sure there are no bridged pins.
+
+### There's a bright red glow in the tube from top to bottom
+
+Turn it off. The tube will be damaged permanently. You have a short somewhere allowing a higher voltage to be across the cathode. If that is not the case, check the output voltage of the buck converter chip. It should be close to 1.5v. If not, check the component values of the buck converter circuit are correct and none are mixed around.
+
+The tube needs 1.25v, make sure the 6R8 resistors are in properly and there are no shorts.
+
+### There's a slight red glow in the top from top to bottom
+
+This is fine and normal. The cathode should be glowing slightly under operation. Should the display be a bit dim, the glow will be visible. With a bright display, the glow will disappear from being drowned out by the florescence.
+
+If you are worried, swap the 6R8 resistor for a higher value. Try 8R2 first.
+
+### Some/one tube(s) don't light up.
+
+Before thinking it is a bad tube. Make sure you have the correct voltages on its pins. There should be 28v on the grid pin. 28v on any of the display segments that should be lit. 1.25v on the cathode input pin and ground on the other cathode pin. If these are missing the problem is elsewhere. See the section on power supplies.
+
+If the voltages are fine, it’s a bad tube.
+
+### The clock drifts out slowly
+
+Yeah it's an old fashioned clock, what do you want?
+
+It shouldn't be more than a few seconds per day though. Check the values of the oscillator circuit. Higher accuracy components would be better than normal ones. Normal ones could be 10% out, so even swapping them with another of the same might be of help.
