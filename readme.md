@@ -122,7 +122,7 @@ It's new home in my cosy, cute, corner. It's a work in progress.
 
 A bonus photo. I was intending on make this reuseable for IV-11 tubes by simpley changing the cathode resistors and tube footprints. It could work, but I've abandoned that idea. I think I'll use them in an AVR based clock instead.
 
-![IV-6 Tube and supply design testing resized](https://github.com/user-attachments/assets/a8a587c5-1636-4ef3-8691-6e200576af12)
+![IV-11 IV-6 IV-3 resized](https://github.com/user-attachments/assets/75e0ce00-1d52-4be5-8071-c6f08fedf6f0)
 
 ## Troubleshooting
 
