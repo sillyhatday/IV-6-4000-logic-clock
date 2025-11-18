@@ -97,11 +97,42 @@ This project pushes the chip to its limit. It has an output switching current of
 
 The display tubes require a low voltage for the directly heated cathode. This is also created from the use of the 34063 in a buck converter topology. The heater voltage can easily be created with a series resistor from the 5v supply. This has the problem of the voltage changing directly in proportion with the supply. The USB voltage can vary a large amount, this would cause the display brightness to vary a lot. It could even damage the cathode. Should the voltage drift too high. Using the buck converter for powering the cathodes, allows the 34063 to adjust the output voltage regardless of the input voltage.
 
+## Project Timeline
+This isn't a comprehensive documentation of the design and build. I didn't intend to make one. I had took some photos along the way for my own use. I thought they would be worht sharing.
+
+Here is the design for both power supplies needed for the tubes to run. I had used the MC34063 before, so it seemed the easy choice for me. It matches well with that old sytle visuals too being it is very old itself.
+
+![IV-6 Tube and supply design testing resized](https://github.com/user-attachments/assets/54399142-af78-4974-98ca-4e07d0c4a10b)
+
+The first prototype went worse than I'd hoped. It was not a failure though, as it was useful enough to iron out all mistakes and oversights. The main issue being I got the pin out for the tubes wrong. At the time I was messing with the IV-11 tubes and mistakenly used that pinout for the IV-6 footprint. I thought I'd just got it rotated somehow, but no, it was the pinout for the IV-11. On the bright side, both power supplies were working and at least one of the high side drivers. The display would also change the garbage it displayed about every second. So it seemed to be counting.
+
+![IV-6 Clock - First Prototype Pinout resized](https://github.com/user-attachments/assets/1c906c65-ecc7-4c4e-b827-b417aa98f068)
+
+I wondered if to just correct the pin out and order a new PCB, hoping that there would be no other problems. After sitting on things, I figured I could use LEDs to see if the BCD signals were changing correctly. Not realising until connected up I'd made a binary clock. I'd somehow got the hours digits backwards and the hours reset function was broken. I'd spent hours debugging why the hours increment stepped in twos at a time. A 22K resistor slipped into my 2K2 resistor box...
+
+<img width="471" height="383" alt="Binary Testing" src="https://github.com/user-attachments/assets/bf341dae-719b-448c-b77d-c2a606e855b7" />
+
+I got the changes made and ordered a new PCB. Everything on here working just fine, quite a relief. Until during testing the hours passed 23. There are in fact not 30 hours in a day. The reset circuit was still broken. Fortunately the hours reset at 42, so I knew I'd got the digits reset signals flipped. I'm not building another one, the sockets aren't cheap to keep wasting, some wires underneath and some trace cutting fixed it up. The released files conatin a fixed version of this. Here I was trying my tube bases to improve the looks by hiding the spindley legs. They should be mounted lower down to the PCB, but I didn't want to cut the legs short. I also figure if it looks silly I can lower them further. I can't raise them back up after the legs are cut. I can release the files for the PCB base and tube bases if wanted.
+
+![IV-6 Clock - Tube Bases resized](https://github.com/user-attachments/assets/c45fa0c4-b700-4822-bebd-03e8f1722ec7)
+
+It's new home in my cosy, cute, corner. It's a work in progress.
+
+![IV-6 Clock - Cute Corner resized](https://github.com/user-attachments/assets/0b80ed3e-2c9a-47fb-98a4-ecac95ded01b)
+
+A bonus photo. I was intending on make this reuseable for IV-11 tubes by simpley changing the cathode resistors and tube footprints. It could work, but I've abandoned that idea. I think I'll use them in an AVR based clock instead.
+
+![IV-6 Tube and supply design testing resized](https://github.com/user-attachments/assets/a8a587c5-1636-4ef3-8691-6e200576af12)
+
 ## Troubleshooting
 
 ### Digits skipping when setting time
 
-The quality of the buttons used make a difference here. Some will bounce more than others, that is what is causing the digits to skip. Try either a larger capacitor near it or swap the switch in hopes it will not bounce so much.
+The quality of the buttons used make a difference here. Some will bounce more than others, that is what is causing the digits to skip. Try either a larger capacitor near it or swap the switch in hopes it will not bounce so much. You can sometimes see each digit as it bounces through them.
+
+### Digits incrementing 2 or more when setting time
+
+Check the component values in the button debounce circuit. A too high value resistor will cause the digits to change so fast, you can't see digit in between. Similar to the preious issue.
 
 ### Digits are dim when a certain number is displayed and segment missing
 
