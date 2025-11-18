@@ -93,7 +93,9 @@ This isn't a comprehensive documentation of the design and build. I didn't inten
 
 <img width="471" height="383" alt="Binary Testing" src="https://github.com/user-attachments/assets/bf341dae-719b-448c-b77d-c2a606e855b7" />
 
-* I got the changes made and ordered a new PCB. Everything on here working just fine, quite a relief. Until during testing the hours passed 23. There are in fact not 30 hours in a day. The reset circuit was still broken. Fortunately the hours reset at 42, so I knew I'd got the digits reset signals flipped. I'm not building another one, the sockets aren't cheap to keep wasting, some wires underneath and some trace cutting fixed it up. The released files conatin a fixed version of this. Here I was trying my tube bases to improve the looks by hiding the spindley legs. They should be mounted lower down to the PCB, but I didn't want to cut the legs short. I also figure if it looks silly I can lower them further. I can't raise them back up after the legs are cut. I can release the files for the PCB base and tube bases if wanted.
+* I got the changes made and ordered a new PCB. Everything on here working just fine, quite a relief. That was until during testing, the hours passed 23. There are in fact not 30 hours in a day. The reset circuit was still broken. Fortunately the hours reset at 42, so I knew I'd got the digits reset signals flipped. I'm not building another one, the sockets aren't cheap to keep wasting; some wires underneath and some trace cutting fixed it up. The released files conatain a fixed version of this.
+  
+* Here I was trying my tube bases to improve the looks by hiding the spindley legs. They should be mounted lower down to the PCB, but I didn't want to cut the legs short. I also figure if it looks silly I can lower them further. I can't raise them back up after the legs are cut. I can release the files for the PCB base and tube bases if wanted.
 
 ![IV-6 Clock - Tube Bases resized](https://github.com/user-attachments/assets/c45fa0c4-b700-4822-bebd-03e8f1722ec7)
 
