@@ -126,6 +126,14 @@ A bonus photo. I was intending on make this reuseable for IV-11 tubes by simpley
 
 ## Troubleshooting
 
+### There are some digits brighter than others
+
+That's soviet build quality for you. They are not exactly build with care and precision. They couldn't even get the datasheets right. To minimise this, swap the cathode resistor for that display with a higher one. The value in the schematic is the minimum value to not cause damage, with a little head room. My suggestion is that if a digit is only a little brighter, leave it alone. If it is noticeibly brighter, try an 8R2 resistor in place of the 6R8. If it is a lot brighter, try a 10R or 12R in place of the 6R8 resistor. Going much higher could cause long term damage due to the cathode not being hot enough, causing sputter.
+
+### Some digits are much dimmer than others
+
+That's soviet build quality for you. They are not exactly build with care and precision. They couldn't even get the datasheets right. There isn't a lot to be done about this. It could well be that the tubes have begun letting air in or they were always like that. You can try changing the cathode resistor from 6R8 to 4R7. This didn't make much difference for me, the glow from the cathode gets brighter and any phosphour brightness increase is distracted from the red glow. Going to a 2R2 resistor just turns it into a bulb.
+
 ### Digits skipping when setting time
 
 The quality of the buttons used make a difference here. Some will bounce more than others, that is what is causing the digits to skip. Try either a larger capacitor near it or swap the switch in hopes it will not bounce so much. You can sometimes see each digit as it bounces through them.
